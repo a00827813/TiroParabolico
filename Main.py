@@ -1,12 +1,18 @@
+#José Romero A00827813
+#Diego Andrés Moreno A01283790
+#Juego Pacman
+
+#importamos librerias que utilizaremos
 from random import randrange
 from turtle import *
 from freegames import vector
 
+#definicion de variables
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
 
-
+#Funcion para manejar click en pantalla
 def tap(x, y):
     "Respond to screen tap."
     if not inside(ball):
@@ -15,7 +21,8 @@ def tap(x, y):
         speed.x = (x + 200) / 25
         speed.y = (y + 200) / 25
 
-
+#Declaracion de variable global, para que el metodo sume infinitamente el tablero del tamaño
+#y por lo tanto crear un juego indeterminado
 min = -100
 max = 100
 def inside(xy):
@@ -26,6 +33,7 @@ def inside(xy):
     max = max + 100
     return min < xy.x < max and -200 < xy.y < 200
 
+#Desplegar graficos
 def draw():
     "Draw ball and targets."
     clear()
@@ -40,6 +48,8 @@ def draw():
 
     update()
 
+
+#Que el tablero avanze junto con el tiro y sus targets
 def move():
     "Move ball and targets."
     if randrange(40) == 0:
@@ -69,6 +79,8 @@ def move():
 
     ontimer(move, 50)
 
+
+#Metodos para iniciar el programa y setup
 setup(420, 420, 370, 0)
 hideturtle()
 up()
