@@ -1,7 +1,3 @@
-#José Romero A00827813
-#Diego Andrés Moreno A01283790
-#Juego Tiro Parabolico
-
 from random import randrange
 from turtle import *
 from freegames import vector
@@ -10,6 +6,7 @@ ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
 
+
 def tap(x, y):
     "Respond to screen tap."
     if not inside(ball):
@@ -17,6 +14,7 @@ def tap(x, y):
         ball.y = -199
         speed.x = (x + 200) / 25
         speed.y = (y + 200) / 25
+
 
 def inside(xy):
     "Return True if xy within screen."
@@ -44,10 +42,10 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 1.0
 
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 1.0
         ball.move(speed)
 
     dupe = targets.copy()
